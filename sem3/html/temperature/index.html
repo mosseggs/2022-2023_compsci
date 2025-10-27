@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Temperature</title>
+  </head>
+  <body>
+
+    <div class="container">
+      <h1 class="mt-5 mb-3">Fahrenheit / Celsius Conversion</h1>
+
+      <div id="tempContainer" class="form-group">
+        <label for="tempInput">Degrees to convert</label>
+        <input type="text" class="form-control" id="tempInput">
+        <div class="input-group">
+          <select class="custom-select" id="choose">
+            <option value="none" selected>Choose one...</option>
+            <option value="ftoc">Fahrenheit to Celsius</option>
+            <option value="ctof">Celsius to Fahrenheit</option>
+          </select>
+          <div class="input-group-append">
+            <button onclick="convert()" class="btn btn-outline-secondary" type="button">Convert</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-5" id="result"></div>
+    </div>
+    <script>
+      // TODO
+      let input = document.querySelector("#tempInput");
+      let choice = document.querySelector("#choose");
+      let output = document.querySelector("#result");
+
+      function convert() {
+        if(choice.value == "ftoc"){
+          output = (input.value - 32) * (5/9);
+          document.getElementById("result").innerHTML = input.value + " degrees fahrenheit is " + output.toFixed(1) + " degrees celsius.";
+        }
+        else if(choice.value == "ctof"){
+          output = (input.value * (9/5)) + 32;
+          document.getElementById("result").innerHTML = input.value + " degrees celsius is " + output.toFixed(1) + " degrees fahrenheit.";
+        }
+      }
+
+    </script>
+  </body>
+</html>
