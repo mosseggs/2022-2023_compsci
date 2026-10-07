@@ -1,10 +1,10 @@
-#include <cs50.h>
 #include <stdio.h>
+#include "cs50.h"
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
 
-int main(int argc, string argv[])
+int main(int argc, char* argv[])
 {
     // if more than 1 command line
     if (argc != 2)
@@ -12,7 +12,7 @@ int main(int argc, string argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
-    string caesar = argv[1];
+    char* caesar = argv[1];
     int cipher=0;
     int key = 0;
     // calulate cipher length + if the cipher is a number
@@ -30,6 +30,7 @@ int main(int argc, string argv[])
     int num = 0;
     // length of the plaintext
     string plain = get_string("plaintext: ");
+
     int length = strlen(plain);
     // cipher the plaintext
     printf("ciphertext: ");
@@ -47,7 +48,7 @@ int main(int argc, string argv[])
         else if (isupper(plain[num]))
         {
             // converts the uppercase (as ascii) into uppercase (as numbers)
-            convert = plain[num] - 65;
+            int convert = plain[num] - 65;
             // print
             printf("%c", ((convert + key) % 26) + 65);
         }
